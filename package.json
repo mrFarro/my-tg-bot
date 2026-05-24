@@ -1,0 +1,9 @@
+{
+  "name": "my-tg-bot",
+  "version": "1.0.0",
+  "main": "bot_4.js",
+  "scripts": {
+    "start": "node bot_4.js"
+  },
+  "dependencies": {}
+}
