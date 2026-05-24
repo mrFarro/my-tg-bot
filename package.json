@@ -5,5 +5,9 @@
   "scripts": {
     "start": "node bot_4.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0",
+    "axios": "^1.6.0",
+    "form-data": "^4.0.0"
+  }
 }
