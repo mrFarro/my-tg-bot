@@ -1998,14 +1998,14 @@ async function genOne(chatId, s, prompt, endpoint, model, isImage, index, total,
       `endpoint=${endpoint}`,
       `model=${model.label}`,
       `prompt="${prompt.slice(0,80)}"`,
-      `bodyKeys=${Object.keys(body).join(",")}`,
+      `bodyKeys=${typeof body !== "undefined" ? Object.keys(body).join(",") : "N/A"}`,
       `err="${errStr}"`,
       `rawData=${JSON.stringify(e.response?.data || {}).slice(0,400)}`,
     ].join(" | ");
     console.error(logMsg);
 
     // Сохраняем в историю для перегенерации даже при ошибке
-    addHistory(chatId, { index: label||"err", model: model.label, prompt, opId: "error", endpoint, body, isImage, ratio: s.ratio });
+    addHistory(chatId, { index: label||"err", model: model.label, prompt, opId: "error", endpoint, body: typeof body !== "undefined" ? body : {}, isImage, ratio: s.ratio });
     const errHistIdx = 0;
 
     await bot.sendMessage(chatId,
